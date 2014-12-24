@@ -34,6 +34,13 @@ namespace SpringAnalyzer.FE
 
         private void LoadFile( string path )
         {
+            if (!File.Exists(path))
+            {
+                string errorMsg = string.Format("File: \"{0}\" does not exist.", path);
+                MessageBox.Show(errorMsg, "Error");
+                return;
+            }
+
             DataModel.Clear();
             try
             {
