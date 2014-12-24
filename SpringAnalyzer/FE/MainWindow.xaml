@@ -18,7 +18,7 @@
         <GridSplitter Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         <StackPanel Orientation="Horizontal" Grid.Row="0">
             <Label Content="File:"/>
-            <TextBox Text="D:\SSME_INT\deploy\config\H\Exam\ProtocolDesigner\SpringConfig.xml" Name="filePathTextBox" Width="500"/>
+            <TextBox Text="Spring.Net configuration file to load" Name="filePathTextBox" Width="500"/>
             <Button Content="  ...  " Click="BrowseForFile"/>
             <Button Content="Load" Click="Load_Clicked"/>
         </StackPanel>

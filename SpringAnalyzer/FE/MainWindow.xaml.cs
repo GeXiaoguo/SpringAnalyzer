@@ -30,8 +30,6 @@ namespace SpringAnalyzer.FE
             DataContext = SingleFileVM;
             detailsView.DataContext = SingleFileVM;
             detailsView.Show();
-
-            LoadFile( @"D:\SSME_INT\deploy\config\H\Exam\ProtocolDesigner\SpringConfig.xml" );
         }
 
         private void LoadFile( string path )
