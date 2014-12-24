@@ -1,0 +1,66 @@
+﻿<Window x:Class="SpringAnalyzer.FE.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:fe="clr-namespace:SpringAnalyzer.FE"
+        Title="SpringAnalyzer - Object Definitions"
+        Width="1280"
+        Height="1024">
+    <Grid >
+        <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="33*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="33*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="33*"/>
+        </Grid.RowDefinitions>
+        <GridSplitter Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <GridSplitter Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Label Content="File:"/>
+            <TextBox Text="D:\SSME_INT\deploy\config\H\Exam\ProtocolDesigner\SpringConfig.xml" Name="filePathTextBox" Width="500"/>
+            <Button Content="  ...  " Click="BrowseForFile"/>
+            <Button Content="Load" Click="Load_Clicked"/>
+        </StackPanel>
+        <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="50*"/>
+                </Grid.ColumnDefinitions>
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Content="----- Imported Files -----  " Grid.Row="0"/>
+                <ListView ItemsSource="{Binding FileImports}" SelectionChanged="FileImports_OnSelectionChanged" Grid.Row="1"/>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Content="----- Leaf Objects( objects that do not reference any other object) -----  " Grid.Row="0"/>
+                <fe:ObjectListControl ItemsSource="{Binding LeafObjects}"  Grid.Row="1"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="----- Object Definitions -----  " Grid.Row="0"/>
+            <fe:ObjectListControl ItemsSource="{Binding Definitions}" Grid.Row="1"/>
+        </Grid>
+        <Grid Grid.Row="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="----- Root Object Definitions (object not referenced by anyone) -----" Grid.Row="0"/>
+            <fe:ObjectListControl ItemsSource="{Binding RootObjects}" Grid.Row="1"/>
+        </Grid>
+    </Grid>
+</Window>

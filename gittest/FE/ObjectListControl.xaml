@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="SpringAnalyzer.FE.ObjectListControl"
+             x:Name="mySelf"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:utils="clr-namespace:SpringAnalyzer.Utils"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid >
+        <ListView ItemsSource="{Binding ItemsSource, ElementName= mySelf}" SelectionChanged="Selector_OnSelectionChanged" utils:ListViewAutoSortExtension.AutoSort="True">
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding id}" Width="Auto" utils:ListViewAutoSortExtension.PropertyName="id" />
+                    <GridViewColumn Header="IsValid" DisplayMemberBinding="{Binding IsValid}" Width="Auto" utils:ListViewAutoSortExtension.PropertyName="IsValid"/>
+                    <GridViewColumn Header="lazy-init" DisplayMemberBinding="{Binding lazy_init}" Width="Auto" utils:ListViewAutoSortExtension.PropertyName="lazy_init"/>
+                    <GridViewColumn Header="File" DisplayMemberBinding="{Binding containing_file}" Width="Auto" utils:ListViewAutoSortExtension.PropertyName="containing_file"/>
+                    <GridViewColumn Header="Type" DisplayMemberBinding="{Binding type}" Width="Auto" utils:ListViewAutoSortExtension.PropertyName="type"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>

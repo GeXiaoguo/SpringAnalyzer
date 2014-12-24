@@ -1,0 +1,9 @@
+﻿<Window x:Class="XmlDataTree.ReferenceObjectsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:fe="clr-namespace:XmlDataTree.FE"
+        Title="Object References" Height="300" Width="300">
+    <Grid>
+        <fe:ObjectListControl ItemSource="{Binding References}"/>
+    </Grid>
+</Window>
